@@ -57,7 +57,7 @@ const getRandomFunFact = async (req, res) => {
 
     if (!stateFunFacts || !stateFunFacts.funfacts || stateFunFacts.funfacts.length === 0) {
         return res.json({
-            message: `No fun facts found for ${state.state}`
+            message: `No Fun Facts found for ${state.state}`
         });
     }
 
@@ -113,7 +113,7 @@ const updateFunFact = async (req, res) => {
         });
     }
 
-    if (!funfact) {
+    if (!funfact || typeof funfact !== 'string') {
         return res.status(400).json({
             message: 'State fun fact value required'
         });
@@ -123,7 +123,7 @@ const updateFunFact = async (req, res) => {
 
     if (!stateFunFacts || !stateFunFacts.funfacts || stateFunFacts.funfacts.length === 0) {
         return res.status(400).json({
-            message: `No fun facts found for ${state.state}`
+            message: `No Fun Facts found for ${state.state}`
         });
     }
 
@@ -131,7 +131,7 @@ const updateFunFact = async (req, res) => {
 
     if (!stateFunFacts.funfacts[adjustedIndex]) {
         return res.status(400).json({
-            message: `No fun fact found at that index for ${state.state}`
+            message: `No Fun Fact found at that index for ${state.state}`
         });
     }
 
@@ -155,7 +155,7 @@ const deleteFunFact = async (req, res) => {
 
     if (!stateFunFacts || !stateFunFacts.funfacts || stateFunFacts.funfacts.length === 0) {
         return res.status(400).json({
-            message: `No fun facts found for ${state.state}`
+            message: `No Fun Facts found for ${state.state}`
         });
     }
 
@@ -163,7 +163,7 @@ const deleteFunFact = async (req, res) => {
 
     if (!stateFunFacts.funfacts[adjustedIndex]) {
         return res.status(400).json({
-            message: `No fun fact found at that index for ${state.state}`
+            message: `No Fun Fact found at that index for ${state.state}`
         });
     }
 
