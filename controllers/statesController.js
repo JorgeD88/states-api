@@ -45,6 +45,8 @@ const getState = async (req, res) => {
 
     if (mongoState) {
         stateObj.funfacts = mongoState.funfacts;
+    } else {
+        stateObj.funfacts = [];
     }
 
     res.json(stateObj);
