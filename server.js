@@ -1,8 +1,8 @@
 require('dotenv').config();
-const path = require('path');
 
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 
@@ -10,10 +10,13 @@ const PORT = process.env.PORT || 3500;
 
 app.use(express.json());
 
+/* SERVE HTML HOME PAGE */
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+/* API ROUTES */
 app.use('/states', require('./routes/api/states'));
 
+/* 404 HANDLER */
 app.use((req, res) => {
     res.status(404);
 
